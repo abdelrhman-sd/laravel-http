@@ -1,0 +1,39 @@
+{
+    "name": "night-commit/laravel-http",
+    "description": "laravel-http is a laravel package that handles laravel's thrown exceptoins and returned data with a structured responses",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NightCommit\\PHP\\Frameworks\\Laravel\\Http\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NightCommit\\PHP\\Frameworks\\Laravel\\Http\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NightCommit\\PHP\\Frameworks\\Laravel\\Http\\HttpResponseServiceProvider"
+            ]
+        }
+    },
+
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "*"
+    },
+
+    "require-dev": {
+        "pestphp/pest": "*",
+        "pestphp/pest-plugin-laravel": "*",
+        "orchestra/testbench": "^11.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
