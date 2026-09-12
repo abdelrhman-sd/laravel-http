@@ -1,4 +1,4 @@
-# Laravel HTTP Response
+# Laravel HTTP
 
 A Laravel package that standardizes your API's JSON responses and automatically converts common exceptions into consistent, structured error responses — no more writing the same `try/catch` -> `response()->json(...)` boilerplate in every controller.
 
