@@ -13,7 +13,7 @@ A Laravel package that standardizes your API's JSON responses and automatically 
 ## Installation
 
 ```bash
-composer require nightcommit/laravel-http-response
+composer require nightcommit/laravel-http
 ```
 
 > Replace the package name above with your actual Packagist/vendor name if different.
