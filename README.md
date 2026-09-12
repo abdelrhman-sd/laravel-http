@@ -47,14 +47,15 @@ Exceptions are matched against a registry of `exception class => resolver` pairs
 
 | Exception                                                             | Status | Message key                                                                                          |
 |-----------------------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------|
-| `Illuminate\Auth\AuthenticationException`                               | 401    | `http-response.unauthenticated`                                                                    |
-| `Illuminate\Auth\Access\AuthorizationException`                         | 403    | `http-response.forbidden`                                                                          |
-| `Illuminate\Database\Eloquent\ModelNotFoundException`                   | 404    | `http-response.not_found`                                                                          |
-| `Illuminate\Database\QueryException`                                    | 409    | `http-response.duplicated`                                                                         |
-| `Illuminate\Validation\ValidationException`                             | 422    | `http-response.validation_failed` (+ field errors)                                                 |
-| `GuzzleHttp\Exception\TooManyRedirectsException`                        | 429    | `http-response.many_requests`                                                                      |
-| `Symfony\Component\HttpKernel\Exception\HttpExceptionInterface`         | exception's own status code | exception's own message, or `http-response.internal_server_error` if empty    |
-| Anything else (no match found)                                        | 500    | exception's own message in non-production, or `http-response.internal_server_error` in production    |
+| `Illuminate\Auth\AuthenticationException`                               | 401    | `http-response.unauthenticated`                                                                        |
+| `Illuminate\Auth\Access\AuthorizationException`                         | 403    | `http-response.forbidden`                                                                              |
+| `Illuminate\Database\Eloquent\ModelNotFoundException`                   | 404    | `http-response.not_found`                                                                              |
+| `Symfony\Component\HttpKernel\Exception\NotFoundHttpException`          | 404    | `http-response.not_found`                                                                              |
+| `Illuminate\Database\QueryException`                                    | 409    | `http-response.duplicated`                                                                             |
+| `Illuminate\Validation\ValidationException`                             | 422    | `http-response.validation_failed` (+ field errors)                                                     |
+| `GuzzleHttp\Exception\TooManyRedirectsException`                        | 429    | `http-response.many_requests`                                                                          |
+| `Symfony\Component\HttpKernel\Exception\HttpExceptionInterface`         | exception's own status code | exception's own message, or `http-response.internal_server_error` if empty        |
+| Anything else (no match found)                                        | 500    | exception's own message in non-production, or `http-response.internal_server_error` in production      |
 
 Anything not in the registry falls through to the 500 default in `handle()`.
 
@@ -67,7 +68,9 @@ Anything not in the registry falls through to the 500 default in `handle()`.
     "error": {
         "message": "Validation failed",
         "details": {
-            "email": ["The email field is required."]
+            "email": [
+                "The email field is required."
+            ]
         }
     }
 }
