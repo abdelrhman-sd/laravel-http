@@ -8,11 +8,11 @@ return [
     'deleted' => ':Resource deleted successfully.',
 
     // error http responses
-    'validation_failed' => 'Validation failed',
-    'not_found'         => ':Resource not found',
-    'unauthenticated'   => 'unauthenticated',
-    'forbidden'         => "You don't required permissions to perform this actoin",
-    'http_error'        => 'HTTP error',
-    'duplicated'        => 'Duplicate or invalid data',
+    'validation_failed'     => 'Validation failed',
+    'not_found'             => 'not found',
+    'unauthenticated'       => 'unauthenticated',
+    'forbidden'             => "You don't required permissions to perform this actoin",
+    'http_error'            => 'HTTP error',
+    'duplicated'            => 'Duplicate or invalid data',
     'internal_server_error' => 'Internal server error'
 ];

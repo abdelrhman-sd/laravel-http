@@ -13,7 +13,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use GuzzleHttp\Exception\TooManyRedirectsException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
-
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HttpExceptionHandler
 {
@@ -65,6 +65,12 @@ class HttpExceptionHandler
         ]);
 
         $this->extend(ModelNotFoundException::class, fn() => [
+            404,
+            __('http-response.not_found'),
+            null
+        ]);
+
+        $this->extend(NotFoundHttpException::class, fn() => [
             404,
             __('http-response.not_found'),
             null
